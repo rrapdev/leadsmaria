@@ -1,0 +1,27 @@
+
+entity Lead {
+	nomeLead String,
+    telefone String,
+    email String,
+    dataNascimento LocalDate,
+    dataCadastro LocalDate
+}
+
+entity Lista {
+	nomeLista String,
+    dataCadastro LocalDate
+}
+
+entity Tag {
+	nomeTag String
+}
+
+relationship ManyToMany {
+	Lead{tags(nomeTag)} to Tag{leads},
+    Lead{lista(nomeLista)} to Lista{leads}
+}
+
+paginate * with pagination
+dto * with mapstruct
+service all with serviceImpl
+filter *
