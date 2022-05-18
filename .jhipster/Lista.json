@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20220518235921",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "lista",
+  "fields": [
+    {
+      "fieldName": "nomeLista",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Lista",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "lead",
+      "otherEntityRelationshipName": "lista",
+      "ownerSide": false,
+      "relationshipName": "leads",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

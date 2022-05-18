@@ -1,0 +1,26 @@
+{
+  "leadsMariaApp": {
+    "lista": {
+      "home": {
+        "title": "Listas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Lista",
+        "createOrEditLabel": "Criar ou editar Lista",
+        "notFound": "Nenhum Lista encontrado"
+      },
+      "created": "Um novo Lista foi criado com o identificador {{ param }}",
+      "updated": "Um Lista foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Lista foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Lista {{ id }}?"
+      },
+      "detail": {
+        "title": "Lista"
+      },
+      "id": "ID",
+      "nomeLista": "Nome Lista",
+      "dataCadastro": "Data Cadastro",
+      "leads": "Leads"
+    }
+  }
+}

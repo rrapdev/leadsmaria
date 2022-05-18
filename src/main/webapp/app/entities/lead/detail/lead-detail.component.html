@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="lead">
+      <h2 data-cy="leadDetailsHeading"><span jhiTranslate="leadsMariaApp.lead.detail.title">Lead</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ lead.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="leadsMariaApp.lead.nomeLead">Nome Lead</span></dt>
+        <dd>
+          <span>{{ lead.nomeLead }}</span>
+        </dd>
+        <dt><span jhiTranslate="leadsMariaApp.lead.telefone">Telefone</span></dt>
+        <dd>
+          <span>{{ lead.telefone }}</span>
+        </dd>
+        <dt><span jhiTranslate="leadsMariaApp.lead.email">Email</span></dt>
+        <dd>
+          <span>{{ lead.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="leadsMariaApp.lead.dataNascimento">Data Nascimento</span></dt>
+        <dd>
+          <span>{{ lead.dataNascimento | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="leadsMariaApp.lead.dataCadastro">Data Cadastro</span></dt>
+        <dd>
+          <span>{{ lead.dataCadastro | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="leadsMariaApp.lead.tags">Tags</span></dt>
+        <dd>
+          <span *ngFor="let tags of lead.tags; let last = last">
+            <a [routerLink]="['/tag', tags?.id, 'view']">{{ tags.nomeTag }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="leadsMariaApp.lead.lista">Lista</span></dt>
+        <dd>
+          <span *ngFor="let lista of lead.listas; let last = last">
+            <a [routerLink]="['/lista', lista?.id, 'view']">{{ lista.nomeLista }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/lead', lead.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

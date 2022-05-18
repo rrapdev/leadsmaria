@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20220518235920",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "jhi_lead",
+  "fields": [
+    {
+      "fieldName": "nomeLead",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Lead",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomeTag",
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "leads",
+      "ownerSide": true,
+      "relationshipName": "tags",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nomeLista",
+      "otherEntityName": "lista",
+      "otherEntityRelationshipName": "leads",
+      "ownerSide": true,
+      "relationshipName": "lista",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
