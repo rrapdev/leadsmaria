@@ -1,0 +1,111 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-lead-heading" data-cy="LeadCreateUpdateHeading" jhiTranslate="leadsMariaApp.lead.home.createOrEditLabel">
+        Create or edit a Lead
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="leadsMariaApp.lead.nomeLead" for="field_nomeLead">Nome Lead</label>
+          <input type="text" class="form-control" name="nomeLead" id="field_nomeLead" data-cy="nomeLead" formControlName="nomeLead" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="leadsMariaApp.lead.telefone" for="field_telefone">Telefone</label>
+          <input type="text" class="form-control" name="telefone" id="field_telefone" data-cy="telefone" formControlName="telefone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="leadsMariaApp.lead.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="leadsMariaApp.lead.dataNascimento" for="field_dataNascimento">Data Nascimento</label>
+          <div class="input-group">
+            <input
+              id="field_dataNascimento"
+              data-cy="dataNascimento"
+              type="text"
+              class="form-control"
+              name="dataNascimento"
+              ngbDatepicker
+              #dataNascimentoDp="ngbDatepicker"
+              formControlName="dataNascimento"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataNascimentoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="leadsMariaApp.lead.dataCadastro" for="field_dataCadastro">Data Cadastro</label>
+          <div class="input-group">
+            <input
+              id="field_dataCadastro"
+              data-cy="dataCadastro"
+              type="text"
+              class="form-control"
+              name="dataCadastro"
+              ngbDatepicker
+              #dataCadastroDp="ngbDatepicker"
+              formControlName="dataCadastro"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataCadastroDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="leadsMariaApp.lead.tags" for="field_tags">Tags</label>
+          <select class="form-control" id="field_tags" data-cy="tags" multiple name="tags" formControlName="tags">
+            <option
+              [ngValue]="getSelectedTag(tagOption, editForm.get('tags')!.value)"
+              *ngFor="let tagOption of tagsSharedCollection; trackBy: trackTagById"
+            >
+              {{ tagOption.nomeTag }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="leadsMariaApp.lead.lista" for="field_listas">Lista</label>
+          <select class="form-control" id="field_listas" data-cy="lista" multiple name="listas" formControlName="listas">
+            <option
+              [ngValue]="getSelectedLista(listaOption, editForm.get('listas')!.value)"
+              *ngFor="let listaOption of listasSharedCollection; trackBy: trackListaById"
+            >
+              {{ listaOption.nomeLista }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Lead.
+    -->
+    <changeSet id="20220518235920-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="jhi_lead_id"
+                                 baseTableName="rel_jhi_lead__tags"
+                                 constraintName="fk_rel_jhi_lead__tags__jhi_lead_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_lead"/>
+
+        <addForeignKeyConstraint baseColumnNames="tags_id"
+                                 baseTableName="rel_jhi_lead__tags"
+                                 constraintName="fk_rel_jhi_lead__tags__tags_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tag"/>
+
+        <addForeignKeyConstraint baseColumnNames="jhi_lead_id"
+                                 baseTableName="rel_jhi_lead__lista"
+                                 constraintName="fk_rel_jhi_lead__lista__jhi_lead_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_lead"/>
+
+        <addForeignKeyConstraint baseColumnNames="lista_id"
+                                 baseTableName="rel_jhi_lead__lista"
+                                 constraintName="fk_rel_jhi_lead__lista__lista_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lista"/>
+    </changeSet>
+</databaseChangeLog>

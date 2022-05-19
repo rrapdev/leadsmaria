@@ -1,0 +1,30 @@
+{
+  "leadsMariaApp": {
+    "lead": {
+      "home": {
+        "title": "Leads",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Lead",
+        "createOrEditLabel": "Criar ou editar Lead",
+        "notFound": "Nenhum Lead encontrado"
+      },
+      "created": "Um novo Lead foi criado com o identificador {{ param }}",
+      "updated": "Um Lead foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Lead foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Lead {{ id }}?"
+      },
+      "detail": {
+        "title": "Lead"
+      },
+      "id": "ID",
+      "nomeLead": "Nome Lead",
+      "telefone": "Telefone",
+      "email": "Email",
+      "dataNascimento": "Data Nascimento",
+      "dataCadastro": "Data Cadastro",
+      "tags": "Tags",
+      "lista": "Lista"
+    }
+  }
+}
